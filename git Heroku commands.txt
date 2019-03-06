@@ -1,0 +1,9 @@
+git remote add origin https://github.com/sivakumar85/package-from-xlsx.git
+
+
+heroku create -- creates app 
+git push heroku master -- deploy from local to heroku
+
+git init
+git add
+git commit -u "message"
