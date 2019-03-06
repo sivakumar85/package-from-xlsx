@@ -6,4 +6,6 @@ git push heroku master -- deploy from local to heroku
 
 git init
 git add
-git commit -u "message"
+git push
+git commit -m "Commit message goes here"
+
