@@ -6,8 +6,8 @@ git push heroku master -- deploy from local to heroku
 
 git init
 git add
-git push
 git commit -m "Commit message goes here"
+git push
 
 git remote add package-from-xlsx https://git.heroku.com/package-from-xlsx.git
 git push package-from-xlsx master
