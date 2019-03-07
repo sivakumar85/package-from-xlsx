@@ -4,6 +4,7 @@ var exceljsonobj =[];
 
 	
 		$scope.uploadExcel = function(){
+			$("#divProcessing").show();
 			 //Reference the FileUpload element.
 			var fileUpload = document.getElementById("fileUpload");
 			//Validate whether File is valid Excel file.
@@ -31,9 +32,11 @@ var exceljsonobj =[];
 						reader.readAsArrayBuffer(fileUpload.files[0]);
 					}
 				} else {
+					$("#divProcessing").hide();
 					alert("This browser does not support HTML5.");
 				}
 			} else {
+				$("#divProcessing").hide();
 				alert("Please upload a valid Excel file.");
 			}
 			
@@ -129,7 +132,7 @@ var exceljsonobj =[];
            
         }
 		var packageData = '';
-		alert(packageTypes);
+		//alert(packageTypes);
 		for (var type in packageTypes) {
 			packageData += "<types>"; 
 			packageData += packageTypes[type];
@@ -137,6 +140,9 @@ var exceljsonobj =[];
 			packageData += "</types>";
 		}
 		//alert(packageData);
+		
+		$("#divProcessing").hide();
+		$("#pdiv").show();
 		$("textarea#dvPackage").val(packageData);
 		
        

@@ -4,7 +4,59 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		
+		<style>
+			.std_loadingBackground {
+    font-family: Verdana,Arial;
+    filter: Alpha(Opacity=30);
+    -moz-opacity: .3;
+    opacity: .6;
+    width: 100%;
+    height: 1000px;
+    background-color: #000;
+    position: fixed;
+    z-index: 500;
+    top: 0;
+    left: 0;
+
+}
+.std_modalContainer {
+    position: fixed;
+    left: 40%;
+    top: 40%;
+    z-index: 750;
+    background-color: #f2f4f5;
+    padding: 6px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,.3);
+    /*border: 0 solid #d0d0d0;*/
+     border: 3px solid rgb(170, 0, 0)
+    -webkit-box-shadow: 5px 5px rgba(0,0,0,.3);
+    -moz-box-shadow: 5px 5px rgba(0,0,0,.3);
+
+}
+.std_processing {
+ font-family: Verdana,Arial;
+    text-align: center;color: rgb(0, 0, 0);
+    padding: 15px 15px 0 15px;
+    width: 40%;
+    /*border: 'none',
+    padding: '15px',
+    backgroundColor: '#000',
+    '-webkit-border-radius': '10px', 
+    '-moz-border-radius': '10px',
+    opacity: .5,
+    color: '#fff'
+    /* border: 'none', 
+            padding: '15px', 
+            backgroundColor: '#000', 
+            '-webkit-border-radius': '10px', 
+            '-moz-border-radius': '10px', 
+            opacity: .5, 
+            color: '#fff'*/
+}
+		</style>
 		</head>
 	<body ng-app="myApp" ng-controller="ctrl">
 	<div class="container">
@@ -19,7 +71,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Project name</a>
+            <a class="navbar-brand" href="#">Package Creator</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -51,7 +103,13 @@
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
         
-		
+		    <form method="get" action="dowloadTracker.xlsx">
+			<div class="row" style="text-align:right">
+						<button type="submit" class="rounded-0 btn btn-primary">Download Sample Tracker XLSX file!</button>
+								
+						</div>
+				
+			</form>
 			<form id="fileUploadForm" enctype="multipart/form-data">
 			<fieldset>
 				<div class="form-horizontal">
@@ -66,7 +124,13 @@
 									<input type="submit" value="Upload" ng-click="uploadExcel()" class="rounded-0 btn btn-primary">
 								</div>
 							</div>
+							<div id="pdiv" style="display:none">
+								<p>Copy Below markup</p>
+								<textarea id="dvPackage" style="border: none;" rows="30" cols="120"></textarea>
+							 </div> 
 						</div>
+						
+						  </div>
 						</div>
 					</div>                        
 				</div>
@@ -91,9 +155,6 @@
 			<button type="submit" value="submit" ng-click="uploadExcel()">Upload File</button>
 		</form>-->
 	
-	<textarea id="dvPackage" style="border: none;" rows="30" cols="120"></textarea>
-       
-      </div>
 
     </div> <!-- /container -->		
 		
@@ -117,7 +178,15 @@
 		</table>
 	</div>-->
 		
-		
+		<div id="divProcessing" style="display:none">
+			<span class="std_loadingBackground"></span>
+			<div style="top: 30%; left: 40%;" class="std_modalContainer">
+				<div class="std_tcenter">
+					<img id="myAnimatedImage" alt="Processing.... Please wait!" src="images/ajax-loader.gif">
+					<span class="std_processing">Processing... Please wait!</span>
+				</div>
+			</div>
+		</div>
 	</body>
 	<script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/angular.min.js"></script>
