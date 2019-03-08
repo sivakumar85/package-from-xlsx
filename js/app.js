@@ -131,7 +131,7 @@ var exceljsonobj =[];
 			$("#myTable tbody:last-child").append(dataSTR);*/
            
         }
-		var packageData = '';
+		var packageData = '<?xml version="1.0" encoding="UTF-8"?><Package xmlns="http://soap.sforce.com/2006/04/metadata">';
 		//alert(packageTypes);
 		for (var type in packageTypes) {
 			packageData += "<types>"; 
@@ -139,13 +139,56 @@ var exceljsonobj =[];
 			packageData += "<name>"+type+"</name>";
 			packageData += "</types>";
 		}
+		packageData+='<version>43.0</version></Package>';
 		//alert(packageData);
-		
+		var xml_formatted = formatXml(packageData);
+
+		var xml_escaped = xml_formatted.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/ /g, '&nbsp;').replace(/\n/g,'<br />');
 		$("#divProcessing").hide();
 		$("#pdiv").show();
-		$("textarea#dvPackage").val(packageData);
+		//$("textarea#dvPackage").val(xml_escaped);
+		$("#dvPackage").html(xml_escaped);
 		
        
     };
+	
+	function formatXml(xml) {
+		var formatted = '';
+		var reg = /(>)(<)(\/*)/g;
+		xml = xml.replace(reg, '$1\r\n$2$3');
+		var pad = 0;
+		jQuery.each(xml.split('\r\n'), function(index, node)
+		{
+			var indent = 0;
+			if (node.match( /.+<\/\w[^>]*>$/ ))
+			{
+				indent = 0;
+			}
+			else if (node.match( /^<\/\w/ ))
+			{
+				if (pad != 0)
+				{
+					pad -= 1;
+				}
+			}
+			else if (node.match( /^<\w[^>]*[^\/]>.*$/ ))
+			{
+				indent = 1;
+			}
+			else
+			{
+				indent = 0;
+			}
+			var padding = '';
+			for (var i = 0; i < pad; i++)
+			{
+				padding += '  ';
+			}
+			formatted += padding + node + '\r\n';
+			pad += indent;
+		});
+		return formatted;
+	}
+			
 	
 }]);

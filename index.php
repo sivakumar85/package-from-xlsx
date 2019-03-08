@@ -126,7 +126,8 @@
 							</div>
 							<div id="pdiv" style="display:none">
 								<p>Copy Below markup</p>
-								<textarea id="dvPackage" style="border: none;" rows="30" cols="120"></textarea>
+								<!--<textarea id="dvPackage" style="border: none;" rows="30" cols="120"></textarea>-->
+								<div id="dvPackage" ></div>
 							 </div> 
 						</div>
 						
