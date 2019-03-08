@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+	<title>create package.xml for salesforce.com ANT deployment</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -108,6 +109,20 @@
 	}
 /*--footer-ends--*/
 		</style>
+		<script>
+			function selectText(containerid) {
+				if (document.selection) { // IE
+					var range = document.body.createTextRange();
+					range.moveToElementText(document.getElementById(containerid));
+					range.select();
+				} else if (window.getSelection) {
+					var range = document.createRange();
+					range.selectNode(document.getElementById(containerid));
+					window.getSelection().removeAllRanges();
+					window.getSelection().addRange(range);
+				}
+			}
+		</script>
 		</head>
 	<body ng-app="myApp" ng-controller="ctrl">
 	<div class="container">
@@ -126,27 +141,14 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home</a></li>
-              <!--<li><a href="#">About</a></li>
-              <li><a href="#">Contact</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li class="dropdown-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </li>-->
+              <li class="active"><a href="#"><i class="fa fa-home"></i><span>Home</span></a></li>
+              
             </ul>
-            <!--<ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li>
-              <li><a href="../navbar-static-top/">Static top</a></li>
-              <li><a href="../navbar-fixed-top/">Fixed top</a></li>
-            </ul>-->
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="#"><i class="fa fa-code-fork"></i><span>Sorce Code</span></a></li>
+              
+              <li><a href="#Home" class="nav-item"><i class="fa fa-question-circle"></i><span>Help</span></a></li>
+            </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
@@ -168,6 +170,14 @@
       <br>
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
+			
+			
+			<div class="alert alert-info" role="alert">
+			  <h4 class="alert-heading">Package Creator:</h4>
+			  <div>Use this handy utility to create Package.xml using the Deployment Tracker, which can then be used for doing deployment using ANT Migration Tool.</div>
+			  <hr>
+			  <div>Download the sample tracker file that can be used to fill in the components</div>
+			</div>
 			<form id="fileUploadForm" enctype="multipart/form-data">
 			<fieldset>
 				<div class="form-horizontal">
@@ -183,7 +193,7 @@
 								</div>
 							</div>
 							<div id="pdiv" style="display:none">
-								<p>Copy Below markup</p>
+								<br><p>Copy Below markup <input type="button" value="Click to Select XML Markup" onclick="selectText('dvPackage')" class="rounded-0 btn btn-primary"></p>
 								<!--<textarea id="dvPackage" style="border: none;" rows="30" cols="120"></textarea>-->
 								<div id="dvPackage" ></div>
 							 </div> 

@@ -53,7 +53,7 @@ var exceljsonobj =[];
         //Read all rows from First Sheet into an JSON array.
         var excelRows = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[firstSheet]);
 		var packageTypes = {};
- 
+	try{
         //Add the data rows from Excel file.
         for (var i = 0; i < excelRows.length; i++) {
 			data = excelRows[i];
@@ -63,13 +63,30 @@ var exceljsonobj =[];
 					if(!angular.isUndefined(packageTypes[data.Metadata_Type])) {
 						packageMember = packageTypes[data.Metadata_Type];					
 					}
-					var res = ComponentObj[objKey].split(".");
-					//console.log(res[0]);
+					var seperator = '';
+					if ((ComponentObj[objKey]).indexOf(".") != -1) {
+						seperator = '.';
+					} else if ((ComponentObj[objKey]).indexOf("-") != -1) {
+						console.log('in else if--->'+(ComponentObj[objKey]).indexOf("-"));
+						seperator = '-';
+					} else if ((ComponentObj[objKey]).indexOf("/") != -1) {
+						seperator = '/';
+					}
+					var res = [];
+					if(seperator != ''){
+						res = ComponentObj[objKey].split(seperator);
+					} else {
+						res[0] =  ComponentObj[objKey];
+					}
+					 
+					console.log('seperator-->'+seperator);
 					console.log(data[res[0].trim()]);
 					if(res.length==2){
-						packageMember += "<members>"+data[res[0].trim()]+"."+data[res[1]]+"</members>";
+						console.log('in if-->'+res[0]+'##'+data[res[0]]+'##'+objKey) 
+						packageMember += "<members>"+(data[res[0].trim()]).trim()+seperator+(data[res[1]]).trim()+"</members>";
 					} else {
-						packageMember += "<members>"+data[res[0].trim()]+"</members>";
+						console.log('in else-->'+res[0]+'##'+data[res[0].trim()])
+						packageMember += "<members>"+(data[res[0].trim()]).trim()+"</members>";
 					}
 					
 					packageTypes[data.Metadata_Type] = packageMember;
@@ -149,7 +166,10 @@ var exceljsonobj =[];
 		//$("textarea#dvPackage").val(xml_escaped);
 		$("#dvPackage").html(xml_escaped);
 		
-       
+	}catch(err) {
+		$("#divProcessing").hide();
+		 alert('Some thing went wrong Some columns are missing as per the Tracker. Please ensure tracker is as per the template. Please try again later '+err.message);
+		}
     };
 	
 	function formatXml(xml) {
@@ -189,6 +209,8 @@ var exceljsonobj =[];
 		});
 		return formatted;
 	}
+	
+	
 			
 	
 }]);
