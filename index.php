@@ -122,7 +122,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Package Creator</a>
+            <a class="navbar-brand" href="#">Package <i>Creator</i></a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -156,7 +156,7 @@
       	<form method="get" action="dowloadTracker.xlsx">
 						
 						<button type="submit" class="rounded-0 btn btn-success">
-							<span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>
+							<span class="glyphicon btn-glyphicon glyphicon-download-alt img-circle text-success"></span>
 						Download Sample Tracker XLSX file!</button>
 								
 						
@@ -247,7 +247,7 @@
 			</div>
 		</div>
 		<!--footer-starts-->
-	<div class="footer">
+	<!--<div class="footer">
 		<div class="container">
 			<div class="footer-top">
 				<a href=""><h3>Package Creator</h3></a>
@@ -255,7 +255,7 @@
 				
 			</div>
 		</div>
-	</div>
+	</div>-->
 	<!--footer-end-->
 	</body>
 	<script type="text/javascript" src="js/jquery.js"></script>
