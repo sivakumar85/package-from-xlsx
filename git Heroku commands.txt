@@ -5,9 +5,10 @@ heroku create -- creates app
 git push heroku master -- deploy from local to heroku
 
 git init
-git add
+git add --update
 git commit -m "Commit message goes here"
 git push
 
 git remote add package-from-xlsx https://git.heroku.com/package-from-xlsx.git
+git remote add package-gen-teja https://git.heroku.com/package-gen-teja.git
 git push package-from-xlsx master

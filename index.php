@@ -19,6 +19,25 @@
     left: 0;
 
 }
+.icon-btn {
+    padding: 1px 15px 3px 2px;
+    border-radius: 50px;
+}
+.img-circle {
+    border-radius: 50%;
+}
+.text-success {
+    color: #3c763d;
+}
+.btn-glyphicon {
+    padding: 8px;
+    background: #ffffff;
+    margin-right: 4px;
+}
+
+.navbar-default .navbar-brand {
+    color: White;
+}
 .std_modalContainer {
     position: fixed;
     left: 40%;
@@ -56,6 +75,38 @@
             opacity: .5, 
             color: '#fff'*/
 }
+	.footer{
+		background:#99cc99;
+		padding:3em 0px;
+		text-align:center;
+		margin-top: 172px;
+	}
+	.footer-top a h3{
+		font-size: 2.7em;
+	    color: #fff;
+	    margin: 0;
+	    font-family: 'AllertaStencil-Regular';
+	}
+	.footer-top p{
+		font-size:17px;
+		color:#fff;
+		margin-top:15px;
+	}
+	.footer-top p a{
+		color:#fff;
+	}
+	.footer-top p a:hover{
+		color:#003366;
+		transition: 0.5s all ease;
+		-webkit-transition: 0.5s all ease;
+		-moz-transition: 0.5s all ease;
+		-o-transition: 0.5s all ease;
+		-ms-transition: 0.5s all ease;
+	}
+	.footer-top a img{
+		margin-top:3%;
+	}
+/*--footer-ends--*/
 		</style>
 		</head>
 	<body ng-app="myApp" ng-controller="ctrl">
@@ -63,7 +114,7 @@
 
       <!-- Static navbar -->
       <nav class="navbar navbar-default">
-        <div class="container-fluid">
+        <div class="container-fluid" style="background-color: #64A737">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
               <span class="sr-only">Toggle navigation</span>
@@ -99,17 +150,24 @@
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
-
-      <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        
-		    <form method="get" action="dowloadTracker.xlsx">
-			<div class="row" style="text-align:right">
-						<button type="submit" class="rounded-0 btn btn-primary">Download Sample Tracker XLSX file!</button>
+      <div class="container">
+      	<div class="row">
+      		<div class="pull-right" style="margin-right: 28px;">
+      	<form method="get" action="dowloadTracker.xlsx">
+						
+						<button type="submit" class="rounded-0 btn btn-success">
+							<span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>
+						Download Sample Tracker XLSX file!</button>
 								
-						</div>
+						
 				
 			</form>
+		</div>
+		</div>
+      </div>
+      <br>
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
 			<form id="fileUploadForm" enctype="multipart/form-data">
 			<fieldset>
 				<div class="form-horizontal">
@@ -187,6 +245,17 @@
 				</div>
 			</div>
 		</div>
+		<!--footer-starts-->
+	<div class="footer">
+		<div class="container">
+			<div class="footer-top">
+				<a href=""><h3>Package Creator</h3></a>
+				<p>© 2019 . All Rights Reserved | Design by </p>
+				
+			</div>
+		</div>
+	</div>
+	<!--footer-end-->
 	</body>
 	<script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/angular.min.js"></script>
