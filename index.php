@@ -5,6 +5,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 		<style>
 			.std_loadingBackground {
     font-family: Verdana,Arial;
@@ -19,6 +21,10 @@
     top: 0;
     left: 0;
 
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: white;
+    background-color: #B8DC00;
 }
 .icon-btn {
     padding: 1px 15px 3px 2px;
@@ -76,38 +82,25 @@
             opacity: .5, 
             color: '#fff'*/
 }
-	.footer{
-		background:#99cc99;
-		padding:3em 0px;
-		text-align:center;
-		margin-top: 172px;
-	}
-	.footer-top a h3{
-		font-size: 2.7em;
-	    color: #fff;
-	    margin: 0;
-	    font-family: 'AllertaStencil-Regular';
-	}
-	.footer-top p{
-		font-size:17px;
-		color:#fff;
-		margin-top:15px;
-	}
-	.footer-top p a{
-		color:#fff;
-	}
-	.footer-top p a:hover{
-		color:#003366;
-		transition: 0.5s all ease;
-		-webkit-transition: 0.5s all ease;
-		-moz-transition: 0.5s all ease;
-		-o-transition: 0.5s all ease;
-		-ms-transition: 0.5s all ease;
-	}
-	.footer-top a img{
-		margin-top:3%;
-	}
-/*--footer-ends--*/
+
+			.footer_bottom{
+			margin-top: 140px;
+    padding-top: 10px;
+    color: white;
+    background-color: black;
+		}
+			
+	.jumbotron {
+    padding-right: 60px;
+    border: 2px solid #447e38;
+    padding-left: 60px;
+}
+.navbar-default .navbar-nav>li>a:hover{
+	background-color: #B8DC00;
+}
+.navbar-default .navbar-nav>li>a {
+   color: white;
+}
 		</style>
 		<script>
 			function selectText(containerid) {
@@ -125,7 +118,6 @@
 		</script>
 		</head>
 	<body ng-app="myApp" ng-controller="ctrl">
-	<div class="container">
 
       <!-- Static navbar -->
       <nav class="navbar navbar-default">
@@ -141,14 +133,46 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#"><i class="fa fa-home"></i><span>Home</span></a></li>
+              <li class="active"><a href="#"><i class="fa fa-home"></i><span>&nbsp;Home</span></a></li>
               
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="#"><i class="fa fa-code-fork"></i><span>Sorce Code</span></a></li>
-              
-              <li><a href="#Home" class="nav-item"><i class="fa fa-question-circle"></i><span>Help</span></a></li>
+              <!--<li class="active"><a href="#"><i class="fa fa-code-fork"></i><span>Sorce Code</span></a></li>-->
+              <li>
+              	<a href="" data-toggle="modal" data-target="#myModal"><i class="fa fa-question-circle"></i><span>&nbsp;Help</span></a></li>
+              	<!-- Modal -->
+			  <div class="modal" id="myModal">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+			<h4 class="modal-title"><span>Help &nbsp;</span><i class="fa fa-question-circle"></i></h4>
+
+		  </div>
+		  <div class="modal-body">
+			  <div class="col-md-12">
+			  	<h4>Package Creator:</h4>
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			  </div>
+			  <div class="clearfix"></div>
+		  </div>
+		  <div class="modal-footer">
+		  	<a href="" class="btn btn-primary pull-left" ><i class="fa fa-phone"></i><span>&nbsp;Contact</span></a>
+			<a href="" class="btn btn-default" data-dismiss="modal" aria-label="Close">Close</a>
+		  </div>
+		</div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+			  <!--end-modal-->
             </ul>
+            
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
@@ -169,6 +193,7 @@
       </div>
       <br>
       <!-- Main component for a primary marketing message or call to action -->
+      <div class="container">
       <div class="jumbotron">
 			
 			
@@ -180,10 +205,11 @@
 			</div>
 			<form id="fileUploadForm" enctype="multipart/form-data">
 			<fieldset>
+				<div class="container">
 				<div class="form-horizontal">
 					<div class="form-group">
 						<div class="row">
-						<label class="control-label col-md-2 text-right" for="filename"><span>File</span></label>
+						<label class="control-label col-md-1 text-right" for="filename"><span>File</span></label>
 						<div class="col-md-10">
 							<div class="input-group">
 								<input type="hidden" id="filename" name="filename" value="">
@@ -225,6 +251,7 @@
 		</form>-->
 	
 
+    </div>
     </div> <!-- /container -->		
 		
 	
@@ -256,17 +283,30 @@
 				</div>
 			</div>
 		</div>
-		<!--footer-starts-->
-	<!--<div class="footer">
-		<div class="container">
-			<div class="footer-top">
-				<a href=""><h3>Package Creator</h3></a>
-				<p>© 2019 . All Rights Reserved | Design by </p>
 				
+			<div class="footer_bottom">
+			<div class="container" style="margin-bottom: -14px">
+					<div class="row">
+						<div class="col-sm-6 ">
+							<div class="copyright-text">
+								<p>Copyright  &copy; 2019  | All Rights Reserved </p>
+							</div>
+						</div> <!-- End Col -->
+						<div class="col-md-2 socialicon">
+						<div class="social-icon">
+							<ul class="list-inline">
+								<li class="facebook">
+									<a href="http://facebook.com/">
+										<i class="fa fa-facebook"style="font-size: 14px;"></i></a>
+								</li>
+								<li class="twitter"><a href="http://twitter.com/"><i class="fa fa-twitter"style="font-size: 14px;"></i></a></li>
+								<li class="google"><a href="http://google.com/"><i class="fa fa-google"style="font-size: 14px;"></i></a></li>
+							</ul>
+						</div>
+					</div>
+					</div>
+				</div>
 			</div>
-		</div>
-	</div>-->
-	<!--footer-end-->
 	</body>
 	<script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/angular.min.js"></script>
