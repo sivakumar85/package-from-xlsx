@@ -146,25 +146,27 @@
 		<div class="modal-content">
 		  <div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-			<h4 class="modal-title"><span>Help &nbsp;</span><i class="fa fa-question-circle"></i></h4>
+			<h4 class="modal-title"><span>Package Creator Help &nbsp;</span><i class="fa fa-question-circle"></i></h4>
 
 		  </div>
 		  <div class="modal-body">
 			  <div class="col-md-12">
-			  	<h4>Package Creator:</h4>
+			  	<h4>Steps:</h4>
 				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
+					<li>Fill the deployment tracker file.</li>
+					<li>Click on Choose file and select the tracker form local system.</li>
+					<li>Click on Upload button.</li>
+					<li>Markup's will be generated and displayed in the page.</li>
+					<li>Copy paste all the contents to Notepad++ or anyother XML editor and save it as Package.xml</li>
+					<li>Use this file for deployment using ANT Migration Tool</li>
+					<li>Contact for any questions and issues :<i class="fa fa-envelope-o" style="font-size: 14px;">&nbsp;</i> <span class="small">sivakumar.sfdc@gmail.com</span></li>
 				</ul>
 			  </div>
 			  <div class="clearfix"></div>
 		  </div>
 		  <div class="modal-footer">
-		  	<a href="" class="btn btn-primary pull-left" ><i class="fa fa-phone"></i><span>&nbsp;Contact</span></a>
+		  	<!--<a href="" class="btn btn-primary pull-left" ><i class="fa fa-phone"></i><span>&nbsp;Contact</span></a>-->
+			
 			<a href="" class="btn btn-default" data-dismiss="modal" aria-label="Close">Close</a>
 		  </div>
 		</div><!-- /.modal-content -->
@@ -201,7 +203,7 @@
 			  <h4 class="alert-heading">Package Creator:</h4>
 			  <div>Use this handy utility to create Package.xml using the Deployment Tracker, which can then be used for doing deployment using ANT Migration Tool.</div>
 			  <hr>
-			  <div>Download the sample tracker file that can be used to fill in the components</div>
+			  <div>Download the sample tracker file that can be used to fill in the components. Please check the Tracker tab to add your components and Component_Types Tab for Components type help.</div>
 			</div>
 			<form id="fileUploadForm" enctype="multipart/form-data">
 			<fieldset>
